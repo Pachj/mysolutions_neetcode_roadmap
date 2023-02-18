@@ -7,5 +7,15 @@ class Solution:
                 if sum == target:
                     return [n, n2]
 
-    # solution 2
+    # solution 2 O(n)
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevNumbersMap = {}
+
+        for i, number in enumerate(nums):
+            difference = target - number
+
+            if difference in prevNumbersMap:
+                return [prevNumbersMap[difference], i]
+
+            prevNumbersMap[number] = i
+
